@@ -1,10 +1,30 @@
+# flaskモジュールからFlaskクラスを読み込む
+# FlaskはWebアプリを作るためのフレームワークの本体
 from flask import Flask
 
+
+# Flaskクラスのインスタンスを作成
+# __name__は現在のファイル名を表す特別な変数
+# Flaskはこれを使って、アプリ全体の構成（テンプレートの場所など）を自動で探す
 app = Flask(__name__)
 
+
+# デコレータ（@）を使って「URLルート（ルーティング）」を設定
+# これは「/」というURL（トップページ）にアクセスされたときに
+# 下の関数 home() を呼び出すように設定している
 @app.route("/")
 def home():
-    return "Hello from Flask + WSL!"
+    # この関数がブラウザに返す内容（文字列やHTML）
+    # 今は単純に文字列 "Hello, Flask!" を返す
+    return "Hello, Flask!"
 
+
+# このブロックは「このファイルが直接実行されたときだけ」動くようにするためのもの
+# たとえば他のファイルからimportされた場合には実行されない
 if __name__ == "__main__":
-    app.run(host="0.0.0.1", port=5000, debug=True)
+    # Flaskの開発用サーバーを起動
+    # host="0.0.0.0" → 外部（同じネットワーク上の別PCなど）からもアクセス可能
+    # port=5000 → 使用するポート番号（デフォルトも5000）
+    # debug=True → コード変更時に自動で再起動＋エラーを見やすく表示
+    app.run(host="0.0.0.0", port=5000, debug=True)
+
