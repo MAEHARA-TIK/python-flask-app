@@ -12,5 +12,5 @@ def home():
 
 #直接実行されたときだけ起動
 if __name__ == "__main__":
-    #開発サーバーを起動
+    #開発サーバーを起動（Default：host="127.0.0.1", port=5000）
     app.run(debug=True)
