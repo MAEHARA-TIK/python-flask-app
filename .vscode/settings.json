@@ -41,7 +41,7 @@
   "gitlens.codeLens.enabled": true,
 
   // ===== エディタ外観 =====
-  "workbench.colorTheme": "Default Dark+",
+  "workbench.colorTheme": "Dark+",
   "editor.renderWhitespace": "boundary",
   "editor.minimap.enabled": false,
   "files.trimTrailingWhitespace": true,
